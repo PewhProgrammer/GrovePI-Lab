@@ -25,7 +25,9 @@ def main():
 
     print('Detecting ...') 
     while True:
-        value = sensor.value        
+        value = sensor.value
+        if value > 60000:
+            print "Not detecting..."        
         if value > 100:
             print("{}, High Pollution.".format(value))
         else:
