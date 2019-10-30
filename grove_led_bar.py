@@ -11,6 +11,7 @@ if len(sys.argv) < 2:
 
 ledbar = sys.argv[1]
 
+print "slot " + ledbar
 grovepi.pinMode(ledbar,"OUTPUT")
 time.sleep(1)
 i = 0
