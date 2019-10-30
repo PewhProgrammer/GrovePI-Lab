@@ -6,12 +6,12 @@ import grovepi
 # read prog args
 
 if len(sys.argv) < 2:
-  print('Usage: {} <pin>'.format(sys.argv[0]))
+  print('Usage: {} D<pin>'.format(sys.argv[0]))
   sys.exit(1)
 
-ledbar = sys.argv[1]
+ledbar = int(sys.argv[1])
 
-print "slot " + ledbar
+#print "slot " + ledbar
 grovepi.pinMode(ledbar,"OUTPUT")
 time.sleep(1)
 i = 0
