@@ -1,9 +1,12 @@
 import time
 import grovepi
 
-# Connect the Grove Air Quality Sensor to analog port A0
-# SIG,NC,VCC,GND
-air_sensor = 0
+# read prog args
+if len(sys.argv) < 2:
+  print('Usage: {} A<pin>'.format(sys.argv[0]))
+  sys.exit(1)
+
+air_sensor = int(sys.argv[1])
 
 grovepi.pinMode(air_sensor,"INPUT")
 
