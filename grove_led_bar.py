@@ -249,8 +249,8 @@ while True:
         time.sleep(.1)
     time.sleep(.4)
 
-except KeyboardInterrupt:
-    grovepi.ledBar_setBits(ledbar, 0)
-    break
-except IOError:
-    print "Error"
+  except KeyboardInterrupt:
+      grovepi.ledBar_setBits(ledbar, 0)
+      break
+  except IOError:
+      print "Error"
