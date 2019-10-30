@@ -1,40 +1,26 @@
-import math
-import sys
 import time
-from grove.adc import ADC
+import grovepi
 
-class GroveAirQualitySensor:
+# Connect the Grove Air Quality Sensor to analog port A0
+# SIG,NC,VCC,GND
+air_sensor = 0
 
-    def __init__(self, channel):
-        self.channel = channel
-        self.adc = ADC()
+grovepi.pinMode(air_sensor,"INPUT")
 
-    @property
-    def value(self):
-        return self.adc.read(self.channel)
+while True:
+    try:
+        # Get sensor value
+        sensor_value = grovepi.analogRead(air_sensor)
 
-Grove = GroveAirQualitySensor
-
-
-def main():
-    if len(sys.argv) < 2:
-        print('Usage: {} adc_channel'.format(sys.argv[0]))
-        sys.exit(1)
-
-    sensor = GroveAirQualitySensor(int(sys.argv[1]))
-
-    print('Detecting ...')
-    while True:
-        value = sensor.value
-        if value > 60000:
-            print "Not detecting..."
-        elif value > 100:
-            print("{}, High Pollution.".format(value))
+        if sensor_value > 700:
+            print "High pollution"
+        elif sensor_value > 300:
+            print "Low pollution"
         else:
-            print("{}, Air Quality OK.".format(value))
+            print "Air fresh"
 
+        print "sensor_value =", sensor_value
         time.sleep(.5)
 
-if __name__ == '__main__':
-    main()
-
+    except IOError:
+        print "Error"
