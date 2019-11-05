@@ -18,9 +18,9 @@ while True:
         print ("LED ON!")
         time.sleep(3)
 
-        digitalWrite(led,2)     # Send LOW to switch off LED
-        print ("LED OFF!")
-        time.sleep(3)
+        # digitalWrite(led,2)     # Send LOW to switch off LED
+        # print ("LED OFF!")
+        # time.sleep(3)
 
     except KeyboardInterrupt:   # Turn LED off before stopping
         digitalWrite(led,0)
