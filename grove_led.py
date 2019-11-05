@@ -14,11 +14,11 @@ print ("Connect the LED to the port labele D4!" )
 while True:
     try:
         #Blink the LED
-        digitalWrite(led,0.2)     # Send HIGH to switch on LED
+        digitalWrite(led,1)     # Send HIGH to switch on LED
         print ("LED ON!")
         time.sleep(3)
 
-        digitalWrite(led,0.7)     # Send LOW to switch off LED
+        digitalWrite(led,2)     # Send LOW to switch off LED
         print ("LED OFF!")
         time.sleep(3)
 
